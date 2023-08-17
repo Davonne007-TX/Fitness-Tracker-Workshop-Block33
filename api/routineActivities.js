@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { updateRoutineActivity, canEditRoutineActivity, destroyRoutineActivity, getRoutineActivityById, getAllRoutineActivities } = require('../db');
-const client = require('../db/client');
+const { updateRoutineActivity, canEditRoutineActivity, destroyRoutineActivity, getRoutineActivityById, getAllRoutineActivities } = require('../db'); 
+const client = require('../db/client');  //do i have to use client ? 
 const { requireUser, requiredNotSent } = require('./utils')
 
-//GET /api/routines_activities - get all
-router.get('/routines_activities', (req, res, next) => {
+
+//GET /api/routine_activities - get all
+router.get('/', async (req, res, next) => {  //do i put routine_activities, i didn't think so
   try {
     const allRoutinesAndActivities = await getAllRoutineActivities();
     res.send(allRoutinesAndActivities)
@@ -14,10 +15,6 @@ router.get('/routines_activities', (req, res, next) => {
     next(error)
   } 
 })
-
-
-
-
 
 // PATCH /api/routine_activities/:routineActivityId
 router.patch('/:routineActivityId', requireUser, requiredNotSent({requiredParams: ['count', 'duration'], atLeastOne: true}), async (req, res, next) => {
