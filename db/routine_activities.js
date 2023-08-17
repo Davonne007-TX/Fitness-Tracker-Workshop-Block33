@@ -1,6 +1,15 @@
 const client = require('./client');
 const util = require('./util');
 
+//async function for get all routines and activities
+async function  getAllRoutineActivities() {
+  try {
+
+  } catch {
+
+  }
+}
+
 async function getRoutineActivityById(id){
   try {
     const {rows: [routineActivity]} = await client.query(`

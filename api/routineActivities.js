@@ -1,8 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const { updateRoutineActivity, canEditRoutineActivity, destroyRoutineActivity, getRoutineActivityById } = require('../db');
+const { updateRoutineActivity, canEditRoutineActivity, destroyRoutineActivity, getRoutineActivityById, getAllRoutineActivities } = require('../db');
 const client = require('../db/client');
 const { requireUser, requiredNotSent } = require('./utils')
+
+//GET /api/routines_activities - get all
+router.get('/routines_activities', (req, res, next) => {
+  try {
+    const allRoutinesAndActivities = await getAllRoutineActivities();
+    res.send(allRoutinesAndActivities)
+
+  } catch (error) {
+    next(error)
+  } 
+})
+
+
 
 
 
