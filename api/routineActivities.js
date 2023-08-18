@@ -5,8 +5,8 @@ const client = require('../db/client');  //do i have to use client ?
 const { requireUser, requiredNotSent } = require('./utils')
 
 
-//GET /api/routine_activities - get all
-router.get('/', async (req, res, next) => {  //do i put routine_activities, i didn't think so
+// GET /api/routine_activities - get all
+router.get('/', async (req, res, next) => {  
   try {
     const allRoutinesAndActivities = await getAllRoutineActivities();
     res.send(allRoutinesAndActivities)
