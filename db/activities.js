@@ -26,7 +26,6 @@ async function getActivityById(id) {
   }
 }
 
-
 //get activity by name
 async function getActivityByName(name){
   try {
