@@ -36,13 +36,14 @@ router.get('/', async (req, res, next) => {
 //await getActivityById to a variable
 //res.send that variable
 //catch error
-
-
-
-
-
-
-
+router.get('/:id', async (req, res, next) => {
+  try {
+      const singleActivity = await getActivityById(req.params.id);
+      res.send(singleActivity);
+  } catch (error) {
+      next(error)
+  }
+});
 
 // POST /api/activities
 router.post('/', requireUser, requiredNotSent({requiredParams: ['name', 'description']}), async (req, res, next) => {

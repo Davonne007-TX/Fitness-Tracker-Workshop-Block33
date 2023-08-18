@@ -3,6 +3,7 @@ const { attachActivitiesToRoutines } = require('./activities')
 const { getUserByUsername } = require('./users')
 const util = require('./util');
 
+//get routine by id
 async function getRoutineById(id){
   try {
     const {rows: [routine]} = await client.query(`

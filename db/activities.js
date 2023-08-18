@@ -12,9 +12,11 @@ async function getAllActivities(){
     throw error;
   }
 }
+
+//get activity by ID
 async function getActivityById(id){
   try {
-    const {rows: [activity]} = await client.query(`
+    const { rows: [activity] } = await client.query(`
       SELECT * FROM activities
       WHERE id = $1
     `, [id]);
@@ -23,6 +25,8 @@ async function getActivityById(id){
     throw error;
   }
 }
+
+//get activity by name
 async function getActivityByName(name){
   try {
     const {rows: [activity]} = await client.query(`
