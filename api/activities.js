@@ -30,6 +30,20 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+//GET /api/activities/id
+//router.get with async req, res, next
+//try catch 
+//await getActivityById to a variable
+//res.send that variable
+//catch error
+
+
+
+
+
+
+
+
 // POST /api/activities
 router.post('/', requireUser, requiredNotSent({requiredParams: ['name', 'description']}), async (req, res, next) => {
   try {

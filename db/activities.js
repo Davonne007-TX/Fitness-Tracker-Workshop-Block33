@@ -4,7 +4,7 @@ const util = require('./util');
 // database functions
 async function getAllActivities(){
   try {
-    const {rows} = await client.query(`
+    const { rows } = await client.query(`
       SELECT * FROM activities;
     `);
     return rows;

@@ -34,7 +34,7 @@ async function addActivityToRoutine({
   }
 }
 
-//all routines_activities    //need help with this 
+//all routines_activities  
 async function getAllRoutineActivities() {
   try {
     const { rows } = await client.query(`
