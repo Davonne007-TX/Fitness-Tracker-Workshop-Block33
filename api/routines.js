@@ -34,6 +34,8 @@ router.get('/:id', async (req, res, next) => {
 
 
 // POST /api/routines
+//create new routine 
+//name and goal are required 
 router.post('/', requireUser, requiredNotSent({requiredParams: ['name', 'goal']}), async (req, res, next) => {
   try {
     const {name, goal} = req.body;
@@ -54,7 +56,7 @@ router.post('/', requireUser, requiredNotSent({requiredParams: ['name', 'goal']}
 // PATCH /api/routines/:routineId
 router.patch('/:routineId', requireUser, requiredNotSent({requiredParams: ['name', 'goal', 'isPublic'], atLeastOne: true}), async (req, res, next) => {
   try {
-    const {name, goal, isPublic} = req.body.params;
+    const {name, goal, isPublic} = req.body;
     const {routineId} = req.params;
     const routineToUpdate = await getRoutineById(routineId);
     if(!routineToUpdate) {
