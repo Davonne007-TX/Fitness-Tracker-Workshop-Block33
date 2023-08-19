@@ -34,11 +34,11 @@ router.post('/login', async (req, res, next) => {
 });
 
 // POST /api/users/register
+//post request
 router.post('/register', async (req, res, next) => {
   try {
     const {username, password} = req.body;
     const queriedUser = await getUserByUsername(username);
-    console.log(queriedUser)
 
     if (queriedUser) {
       res.status(401);
@@ -102,4 +102,7 @@ router.get('/:username/routines', async (req, res, next) => {
     next(error)
   }
 })
+
+
+
 module.exports = router;
