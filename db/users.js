@@ -7,7 +7,7 @@ const SALT_COUNT = 10;
 
 // user functions
 async function createUser({ username, password}) {
-  const hashedPassword = await bcrypt.hash(password, SALT_COUNT);
+  const hashedPassword = await bcrypt.hash(password, SALT_COUNT);   //hash the password 
   try {
     const {rows: [user]} = await client.query(`
       INSERT INTO users(username, password) VALUES ($1, $2)
@@ -19,6 +19,7 @@ async function createUser({ username, password}) {
     throw error;
   }
 }
+
 async function getUser({username, password}) {
   if (!username || !password) {
     return;

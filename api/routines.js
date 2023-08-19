@@ -18,7 +18,12 @@ router.get('/', async (req, res, next) => {
 
 
 //GET /api/routines/id
-router.get('/:id', async (req, res, next) => {
+//router.get the id, async req, res, next
+//try catch
+//await getRoutineById
+//res.send(singleRoutine)
+//catch error
+router.get('/:id', async (req, res, next) => {          //why does it only go to 4 ? 
   try {
       const singleRoutine = await getRoutineById(req.params.id);
       res.send(singleRoutine);

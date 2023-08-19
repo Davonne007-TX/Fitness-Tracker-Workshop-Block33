@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const { createUser, getUserByUsername, getPublicRoutinesByUser, getAllRoutinesByUser, getUser } = require('../db');
 const { requireUser } = require('./utils');
-const { JWT_SECRET = 'neverTell' } = process.env;
+const { JWT_SECRET } = process.env;  //look at the secret 
 
 // POST /api/users/login
 router.post('/login', async (req, res, next) => {
@@ -38,6 +38,8 @@ router.post('/register', async (req, res, next) => {
   try {
     const {username, password} = req.body;
     const queriedUser = await getUserByUsername(username);
+    console.log(queriedUser)
+
     if (queriedUser) {
       res.status(401);
       next({
