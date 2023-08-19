@@ -23,7 +23,7 @@ router.get('/', async (req, res, next) => {
 //await getRoutineById
 //res.send(singleRoutine)
 //catch error
-router.get('/:id', async (req, res, next) => {          //why does it only go to 4 ? 
+router.get('/:id', async (req, res, next) => {        
   try {
       const singleRoutine = await getRoutineById(req.params.id);
       res.send(singleRoutine);
@@ -54,7 +54,7 @@ router.post('/', requireUser, requiredNotSent({requiredParams: ['name', 'goal']}
 // PATCH /api/routines/:routineId
 router.patch('/:routineId', requireUser, requiredNotSent({requiredParams: ['name', 'goal', 'isPublic'], atLeastOne: true}), async (req, res, next) => {
   try {
-    const {name, goal, isPublic} = req.body;
+    const {name, goal, isPublic} = req.body.params;
     const {routineId} = req.params;
     const routineToUpdate = await getRoutineById(routineId);
     if(!routineToUpdate) {
