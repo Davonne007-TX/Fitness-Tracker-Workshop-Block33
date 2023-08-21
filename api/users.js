@@ -9,7 +9,7 @@ const { JWT_SECRET } = process.env;  //look at the secret
 router.post('/login', async (req, res, next) => {
   const { username, password } = req.body;
 
-  // request must have both
+  // request must have both username and password
   if (!username || !password) {
     next({
       name: 'MissingCredentialsError',
