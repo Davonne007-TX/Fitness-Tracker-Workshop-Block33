@@ -125,7 +125,7 @@ async function canEditRoutineActivity(routineActivityId, userId) {
 
 module.exports = {
   getRoutineActivityById,
-  // updateRoutine, //i saw this was not used
+  updateRoutine, //i saw this was not used
   addActivityToRoutine,
   getAllRoutineActivities,
   getRoutineActivitiesByRoutine,
