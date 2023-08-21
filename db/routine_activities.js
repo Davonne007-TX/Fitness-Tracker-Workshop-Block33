@@ -79,6 +79,7 @@ async function updateRoutine({id, ...fields}) {
     throw error;
   }
 }
+
 async function updateRoutineActivity ({id, ...fields}) {
   try {
     const toUpdate = {}
@@ -125,7 +126,7 @@ async function canEditRoutineActivity(routineActivityId, userId) {
 
 module.exports = {
   getRoutineActivityById,
-  updateRoutine, //i saw this was not used
+  // updateRoutine, //i saw this was not used
   addActivityToRoutine,
   getAllRoutineActivities,
   getRoutineActivitiesByRoutine,
