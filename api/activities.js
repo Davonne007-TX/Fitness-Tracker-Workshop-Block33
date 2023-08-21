@@ -36,6 +36,7 @@ router.get('/', async (req, res, next) => {
 //await getActivityById to a variable
 //res.send that variable
 //catch error
+//question ?????? why does it only go up to 4 ? in insomnia when you do the request
 router.get('/:id', async (req, res, next) => {
   try {
     const oneActivity = await getActivityById(req.params.id)
