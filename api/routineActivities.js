@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { updateRoutineActivity, canEditRoutineActivity, destroyRoutineActivity, getRoutineActivityById, getAllRoutineActivities, } = require('../db'); 
+const { updateRoutineActivity, canEditRoutineActivity, destroyRoutineActivity, getRoutineActivityById, getAllRoutineActivities, createRoutine, } = require('../db'); 
 const client = require('../db/client');  
 const { requireUser, requiredNotSent } = require('./utils')
 
